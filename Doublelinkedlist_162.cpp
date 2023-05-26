@@ -28,3 +28,7 @@ public:
 DoubleLinkedList::DoubleLinkedList() {
 	START = NULL;
 }
+
+void DoubleLinkedList::addnode() {
+
+}

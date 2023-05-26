@@ -78,5 +78,47 @@ void DoubleLinkedList::addnode() {
 bool DoubleLinkedList::search(int rollNo, Node** previous, Node** current) {
 	*previous = NULL; // step 1.a
 	*current = START; // step 1.b
-	while (*curent != NULL && (current ))
+	while (*curent != NULL && (current)->noMhs) {//step 1.c
+		*previous = *current; //step 1.d
+		*current = (*current)->next; //step1.e
+	}
+	retrun(*current != NULL);
+
+
 }
+bool DoubleLinkedList::deleteNode(int rollNo) {
+	Node* previous, * current;
+	previous = current = NULL;
+	if (search(rollNo, &previous, &current) == false)
+		return false;
+	if (current->next != NULL)
+		current->next->prev = previous;
+	if (previous != NULL)
+		previous->next = current->next;
+	else
+		START = current->next;
+
+	delete current;
+	return true;
+}
+
+bool DoubleLinkedList::ListEmpty() {
+	return (START == NULL);
+}
+
+void DoubleLinkedList::traverse() {
+	if (ListEmpty())
+		cout << "\nList is empty" << endl;
+	else {
+		cout << "\nRecords in ascending order of roll number are: " << endl;
+		Node* currentNode = START;
+		while (currentNode != NULL) {
+			cout << currentNode->noMhs << " " << currentNode->name << endl;
+			currentNode = currentNode->next;
+		}
+	}
+}
+
+
+
+

@@ -107,7 +107,7 @@ bool DoubleLinkedList::ListEmpty() {
 }
 
 void DoubleLinkedList::traverse() {
-	if (ListEmpty())
+	if (istEmpty())
 		cout << "\nList is empty" << endl;
 	else {
 		cout << "\nRecords in ascending order of roll number are: " << endl;
